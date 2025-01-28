@@ -34,7 +34,7 @@ class DirectedGraph:
         return end in self.adjacency_list.get(start, [])
     
     def checkIfPrerequisite(self,n, prerequisites, queries):
-        reach = [[False] * n for _ in range(n)]
+        reach = [[False] * n for _in range(n)]
         
         for u, v in prerequisites:
             reach[u][v] = True
