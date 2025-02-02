@@ -54,7 +54,6 @@ class Solution:
         return result 
 
 
-# টেস্ট
 s = Solution() 
 n = 6
 edges = [[1,2],[1,4],[1,5],[2,6],[2,3],[4,6]]
