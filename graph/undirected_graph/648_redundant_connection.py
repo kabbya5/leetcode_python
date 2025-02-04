@@ -10,4 +10,4 @@ def findRedunantConnection(edges):
         
 edges = [[1, 2], [1, 3], [2, 3]]
 
-print(findRedundantConnection(edges))
+print(findRedundantConnection(edges))  
