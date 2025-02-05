@@ -9,8 +9,10 @@
 # 65
 
 # Approach
-# Iterate through the array while keeping track of the current sum of the ascending subarray.
-# If the current element is greater than the previous one, add it to the sum.
+# Iterate through the array while keeping track of the current
+# sum of the ascending subarray.
+# If the current element is greater than the previous one,
+# add it to the sum.
 # Otherwise, reset the sum to the current element.
 # Keep track of the maximum sum encountered.
 
