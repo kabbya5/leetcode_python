@@ -35,8 +35,6 @@ class Solution:
         
         diff = [(a,b) for a, b  in zip(s1, s2) if a != b]
 
-        print(diff)
-
         return len(diff) == 2 and diff[0] == diff[1][::-1]
     
 s = Solution() 
