@@ -6,8 +6,8 @@ def make_smallest_array(arr, k):
         min_idx = 1 
         for j in range(i + 1, limit):
             if arr[j] < arr[min_idx]:
-                min_idx =   j
+                min_idx =j
 arr = [7, 6, 9, 2, 1]
 k = 3
 result = make_smallest_array(arr, k)
-print(result)    
+print(result)   
