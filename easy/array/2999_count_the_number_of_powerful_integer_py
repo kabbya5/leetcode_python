@@ -1,5 +1,5 @@
 def increasingTriplet(nums):
-    first, second = float('inf')
+    first = second = float('inf')
 
     for n in nums:
         if n <= first:
