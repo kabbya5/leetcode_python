@@ -1,34 +1,37 @@
-from collections import Counter 
+from collections import Counter,defaultdict 
 
 def minWindow(s:str, t:str)->str:
     if not t or not s:
-        return ''
+        return '' 
     
     t_count = Counter(t) 
-    window_count = {} 
-    left = 0 
-    have, need = 0, len(t_count) 
-    result = ""
-    min_len = float('inf')
+    window = defaultdict(int)
+    have, need = 0, len(t_count)
+    res,res_len = [-1,-1], float('inf')
 
-    for right in range(len(s)):
-        char = s[right] 
-        window_count[char] = window_count.get(char,0) + 1 
-        if char in t_count and window_count[char] == t_count[char]:
+    l = 0 
+    for r in range(len(s)):
+        char = s[r] 
+        window[char] += 1 
+        if char in t_count and window[char] == t_count[char]:
             have += 1 
         while have == need:
-            if right - left + 1 < min_len:
-                min_len = right - left + 1
-                result = s[left:right+1]
-            window_count[s[left]] -= 1 
+            if (r - l + 1) < res_len:
+                res = [l,r]
+                res_len = r - l + 1 
 
-            if s[left] in t_count and window_count[s[left]] < t_count[s[left]]:
+            window[s[l]] -= 1 
+
+            if s[l] in t_count and window[s[l]] < t_count[s[l]]:
                 have -= 1 
-            left += 1 
 
-    return result 
+            l += 1 
+        
+    l,r = res 
 
-s = "ADOBECODEBANC"
+    return s[l:r+1] if res_len != float('inf') else ""
+
+s = "ADOBBANCECODEBANC"
 t = "ABC"
 
 print(minWindow(s, t))
