@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../../../xampp/htdocs/chatting-app"
+		},
+		{
+			"path": "../../../python"
+		},
+		{
+			"path": "../../../../../../../xampp/htdocs/pippa-technology"
+		},
+		{
+			"path": "../../../../../../../xampp/htdocs/LedgerPro"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "chatting-app"
+	}
+}
