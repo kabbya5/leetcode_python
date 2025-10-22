@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Md. Kabbya — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    :root{
+      --bg1:#071026;
+      --bg2:#0b1220;
+      --card:#0f1724;
+      --muted:#98a3b8;
+      --accent1:#7c3aed;
+      --accent2:#6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#e6eef8;
+         background:
+           radial-gradient(800px 300px at 10% 10%, rgba(124,58,237,0.08), transparent),
+           linear-gradient(180deg,var(--bg1), var(--bg2));
+         -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+    .container{
+      max-width:1100px;
+      margin:10px auto;
+      padding:0px;
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 12px 20px;
+    }
+    
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .avatar{
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      overflow:hidden;
+      flex-shrink:0;
+      box-shadow:0 6px 20px rgba(2,8,23,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .tag{color:var(--muted)}
+
+    nav{
+      gap:10px;
+      align-items:center;
+    }
+
+    .mobile-nav  .col-span-1{
+      color:#fff;
+      background:var(--glass);
+      padding:8px 5px;
+      text-align: center;
+    }
+
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{color:#fff;background:var(--glass)}
+    .btn-cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 14px;border-radius:10px;color:#071026;font-weight:800;border:none;cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:26px;margin-top:24px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+    .intro{color:var(--muted);margin:0 0 8px}
+    .bigname{margin:0 0 8px;letter-spacing:-0.6px}
+    .role{color:var(--muted);margin:0 0 14px}
+    .bio{color:#dbeafe;line-height:1.7}
+
+    .skill-pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--muted);font-weight:700;margin:6px 6px 0 0}
+
+    .actions{display:flex;gap:10px;margin-top:18px}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#071026}
+
+    /* Right column */
+    .stats{display:flex;gap:12px;margin-bottom:12px}
+    .stat{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;text-align:center}
+    .stat h2{margin:0;font-size:20px}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* Sections */
+    section{margin-top:26px}
+    .section-title{font-size:18px;margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+
+    .project{
+      border-radius:12px;overflow:hidden;position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .25s, box-shadow .25s;
+    }
+    .project:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(2,6,23,0.6)}
+    .project img{width:100%;height:170px;object-fit:cover;display:block}
+    .project-body{padding:12px}
+    .project-body h4{margin:0 0 8px}
+    .project-body p{margin:0;color:var(--muted);font-size:13px}
+    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .input, textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:140px;resize:vertical}
+
+    /* Footer */
+    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px;padding:18px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    /* small animations */
+    .fade{opacity:0;transform:translateY(10px);animation:fadeIn .6s forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="avatar">
+          <!-- profile image (replace src with your image link) -->
+          <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&q=80" alt="profile">
+        </div>
+        <div>
+          <h1 class="text-[13px] md:text-[16px]">Md. Kabbya</h1>
+          <div class="tag mt-2 nd:mt-1">Full-stack Developer • Laravel & Nuxt</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+      </nav>
+    </header>
+
+    <nav class="mobile-nav flex md:hidden mt-5 px-2">
+      <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <a href="#skills">Skills</a>
+        </div>
+
+        <div class="col-span-1">
+           <a href="#projects">Projects</a>
+        </div>
+
+        <div class="col-span-1">
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <main class="hero" role="main">
+      <div class="card fade" style="animation-delay:80ms">
+        <p class="intro text-[13px] md:text-[14px]">Hello — I build clean & scalable web apps</p>
+        <h2 class="bigname text-[22px] md:text-[30px]">Md. Kabbya</h2>
+        <div class="role text-[13px] md:text-[14px]">Full-stack Developer | Laravel • Nuxt • Tailwind • MySQL</div>
+        <p class="bio text-[13px] md:text-[14px]">I build web applications that are fast, secure, and user-friendly. I have experience working with ERP, POS, and real-time dashboards.</p>
+
+        <div style="margin-top:12px">
+          <span class="skill-pill text-[13px] md:text-[14px]">Laravel</span>
+          <span class="skill-pill text-[13px] md:text-[14px]">Nuxt 3</span>
+          <span class="skill-pill text-[13px] md:text-[14px]">Tailwind</span>
+          <span class="skill-pill text-[13px] md:text-[14px]">MySQL</span>
+          <span class="skill-pill text-[13px] md:text-[14px]">Socket.io</span>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">প্রজেক্ট দেখুন</button>
+          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ</button>
+        </div>
+      </div>
+
+      <aside class="card fade" style="animation-delay:160ms">
+        <div class="stats">
+          <div class="stat">
+            <h2>5+</h2>
+            <p>Completed Projects</p>
+          </div>
+          <div class="stat">
+            <h2>2+ yrs</h2>
+            <p>Experience</p>
+          </div>
+        </div>
+
+        <div class="text-cetner text-[13px] md:text-[14px]" style="margin-top:12px;color:var(--muted);">
+          Specializes in building ERP, POS and Admin Dashboards with real-time features.
+        </div>
+      </aside>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade" style="animation-delay:220ms">
+      <div class="card">
+        <h3 class="section-title">About Me</h3>
+        <p class="text-[13px] md:text-[14px]" style="color:var(--muted);margin:0 0 8px">
+          I’m a Full-Stack Developer — I primarily build web systems using PHP (Laravel) and Nuxt/Vue. Over the past few years, I’ve gained experience developing ERP, POS, and real-time dashboards. My focus is on clean code, performance optimization, and great user experience.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="fade" style="animation-delay:260ms">
+      <h3 class="section-title px-3">Skills</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4> Data & Algorithms </h4>
+          <p style="color:var(--muted)" class="text-[13px] mt-2 md:text-[14px] md:mt-0">
+            OOP, Design Patterns,OOP SOLID principles, DSA, Problem Solving, Performance Optimization
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>Backend</h4>
+          <p style="color:var(--muted)" class="text-[13px] mt-2 md:text-[14px] md:mt-0">
+            PHP, Laravel, REST API, MySQL, PostgreSQL, Authentication, Authorization, MVC,
+          </p>
+        </div>
+        <div class="card">
+          <h4>Frontend</h4>
+          <p style="color:var(--muted)" class="text-[13px] mt-2 md:text-[14px] md:mt-0">
+            Vue.js, Nuxt.js, Tailwind CSS, Bootstrap, Axios, Responsive Design, Component-Based Architecture
+          </p>
+        </div>
+        <div class="card">
+          <h4>DevOps & DB</h4>
+          <p style="color:var(--muted)" class="text-[13px] mt-2 md:text-[14px] md:mt-0">
+            Linux, Nginx, Apache, Docker, CI/CD, Git, Version Control, Server Management
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade" style="animation-delay:300ms">
+      <h3 class="section-title">Selected Projects</h3>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=70" alt="ERP Project">
+          <div class="project-body">
+            <h4>ERP System for Construction</h4>
+            <p>একটি পূর্ণাঙ্গ ERP সিস্টেম — অ্যাকাউন্টিং, ইনভেন্টরি ও প্রজেক্ট ম্যানেজমেন্ট। Laravel + Nuxt + MySQL ব্যবহার করা হয়েছে।</p>
+            <div class="tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">Nuxt</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=70" alt="POS Project">
+          <div class="project-body">
+            <h4>POS & Inventory</h4>
+            <p>হালকা ও দ্রুত POS সিস্টেম — ইনভয়েস প্রিন্টিং ও স্টক কন্ট্রোল। ছোট দোকানের জন্য উপযোগী।</p>
+            <div class="tags">
+              <span class="tag">POS</span>
+              <span class="tag">Real-time</span>
+              <span class="tag">Socket.io</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1581093588401-9b7d0e54e1b6?auto=format&fit=crop&w=1200&q=70" alt="File Sharing App">
+          <div class="project-body">
+            <h4>File Sharing App (Android)</h4>
+            <p>অ্যান্ড্রয়েড ডিভাইসের মধ্যে পিয়ার-টু-পিয়ার ফাইল শেয়ারিং অ্যাপ — নিরাপদ ও দ্রুত ট্রান্সফার।</p>
+            <div class="tags">
+              <span class="tag">Android</span>
+              <span class="tag">Flutter</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1548092372-0d3b78bda2d6?auto=format&fit=crop&w=1200&q=70" alt="Admin Dashboard">
+          <div class="project-body">
+            <h4>Admin Dashboard</h4>
+            <p>রিয়েল-টাইম অ্যানালিটিক্সসহ অ্যাডমিন ড্যাশবোর্ড — নোটিফিকেশন, চার্ট এবং ইউজার ম্যানেজমেন্ট।</p>
+            <div class="tags">
+              <span class="tag">Dashboard</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade" style="animation-delay:340ms">
+      <h3 class="section-title">Contact</h3>
+      <div class="contact-grid">
+        <div class="card">
+          <p style="color:var(--muted);margin:0 0 10px">প্রোজেক্ট, কনসাল্টিং বা হায়ারিং সম্পর্কে যোগাযোগ করুন — নীচে মেসেজ পাঠান বা সরাসরি ইমেইল/গিটহাব/লিংকডইন-এ যোগাযোগ করুন।</p>
+
+          <p style="margin:8px 0"><strong>Email:</strong> <a href="mailto:youremail@example.com" style="color:var(--accent2);text-decoration:none">youremail@example.com</a></p>
+          <p style="margin:8px 0"><strong>Phone:</strong> <span style="color:var(--muted)">+8801XXXXXXXXX</span></p>
+          <p style="margin:8px 0"><strong>GitHub:</strong> <a href="#" style="color:var(--muted);text-decoration:none">github.com/yourusername</a></p>
+          <p style="margin:8px 0"><strong>LinkedIn:</strong> <a href="#" style="color:var(--muted);text-decoration:none">linkedin.com/in/yourprofile</a></p>
+        </div>
+
+        <form class="card" onsubmit="event.preventDefault(); alert('Message sent (demo) — ধন্যবাদ! আমি শীঘ্রই যোগাযোগ করবো।');">
+          <input class="input" placeholder="তোমার নাম" required />
+          <div style="height:10px"></div>
+          <input class="input" type="email" placeholder="Email" required />
+          <div style="height:10px"></div>
+          <textarea class="input" placeholder="Message"></textarea>
+          <div style="height:12px"></div>
+          <button class="btn-primary btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Md. Kabbya — Built with care • Ready to convert to Nuxt / Laravel
+    </footer>
+  </div>
+
+  <script>
+    // small entrance animation trigger
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.fade').forEach((el, i) => {
+        el.style.animationDelay = (i * 80) + 'ms';
+        el.style.animationFillMode = 'forwards';
+      });
+    });
+
+    // smooth scroll for nav links
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').replace('#','');
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
